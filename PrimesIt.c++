@@ -11,7 +11,7 @@ class Prime {
                       return false;}}
                   return true;}
             public:
-                B (int i) {
+                It (int i) {
                     _i = i;}
 
                 bool operator == (const It& rhs) {
