@@ -14,22 +14,22 @@ class Prime {
                 B (int i) {
                     _i = i;}
 
-                bool operator == (const B& rhs) {
+                bool operator == (const It& rhs) {
                     return _i == rhs._i;}
 
-                bool operator != (const B& rhs) {
+                bool operator != (const It& rhs) {
                     return _i != rhs._i;}
 
                 int operator * () {
                     return _i;}
 
-                B& operator ++ () {
-                    while(!isPrime(_i){
+                It& operator ++ () {
+                    while(!isPrime(_i)){
                       ++_i;}
                     return *this;}};
 
-        B begin () {
-            return B(2);}
+        It begin () {
+            return It(2);}
 
-        B end () {
-            return B(13);}};
+        It end () {
+            return It(13);}};
