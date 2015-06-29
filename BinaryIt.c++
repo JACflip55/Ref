@@ -18,8 +18,7 @@ class Binary {
                     return _i%2;}
 
                 It& operator ++ () {
-                    while(!isPrime(_i)){
-                      ++_i;}
+                      ++_i;
                     return *this;}};
 
         It begin () {
