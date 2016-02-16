@@ -1,0 +1,101 @@
+Careercup.com
+
+http://www.example.com
+http://www.example.com/2014/07/06/us/california-missing-marine-wife/index.html
+http://www.example.com/profile
+http://www.example.com/2014/07/07/showbiz/celebrity-news-gossip/jay-z-solange-fight-lucky-magazine/index.html
+http://www.example.com/world
+http://www.example.com/justice
+http://www.example.com/2014/07/07/showbiz/celebrity-news-gossip/jay-z-solange-fight-lucky-magazine/index.html
+http://www.example.com/trends
+http://www.example.com/2014/07/07/health/diet-fitness/irpt-weight-loss-kerry-hoffman/index.html
+http://www.example.com/world
+http://www.example.com/2014/07/02/world/gallery/look-at-me-0702/index.html
+http://www.example.com/2014/07/07/showbiz/celebrity-news-gossip/miley-cyrus-dog-tattoo-floyd/index.html
+http://www.example.com
+
+
+www.example.com/1
+www.example.com/2
+www.example.com/1
+
+def most_requested_url(filename):
+    url_counts = {}
+    for line in filename:
+        if line not in url_counts:
+            url_counts[line] = 1
+        else:
+            url_counts[line] += 1
+        
+    l = ""
+    c = 0  
+    for line in url_counts.keys:
+        if url_counts[line] > c:
+            l = line
+            c = url_counts[line]
+ 
+    return l
+
+Part B: Logs look like this
+01-01-2014-05:32,10.0.1.1,GET,http://mysite.com/page/one.html
+01-01-2014-05:32,10.0.2.1,GET,http://mysite.com/page/two.html
+01-01-2014-05:32,172.32.34.222,GET,http://mysite.com/page/three.cgi
+01-01-2014-05:32,10.0.1.1,GET,http://mysite.com/page/four.py?name=larry&friend=moe
+01-01-2014-05:32,10.0.1.1,POST,http://mysite.com/page/four.py
+
+def most_requested_url2(filename):
+    url_counts = {}
+    for line in filename:
+        line_short = get_last_segment(line)
+        line_short = trim_perimeters_if_present(line_short)
+        if line_short not in url_counts:
+            url_counts[line_short] = 1
+        else:
+            url_counts[line_short] += 1
+
+    l = ""
+    c = 0  
+    for line in url_counts.keys:
+        if url_counts[line] > c:
+            l = line
+            c = url_counts[line]
+ 
+    return l
+
+Part C: I want the function to return Top "N" 
+N > lenght
+def most_requested_url2(filename, n):
+    url_counts = {}
+    for line in filename:
+        line_short = get_last_segment(line)
+        line_short = trim_perimeters_if_present(line_short)
+        if line_short not in url_counts:
+            url_counts[line_short] = 1
+        else:
+            url_counts[line_short] += 1
+
+    urls_most_to_least = sort_magic(url_counts)
+    if len(urls_most_to_least) >= n:
+        return urls_most_to_least[:n]
+    else:
+        return urls_most_to_least
+        
+Part D:
+
+def most_requested_url2(filenames, n):
+    url_counts = {}
+    for f in filenames:
+        for line in f:
+            line_short = get_last_segment(line)
+            line_short = trim_perimeters_if_present(line_short)
+            if line_short not in url_counts:
+                url_counts[line_short] = 1
+            else:
+                url_counts[line_short] += 1
+
+    urls_most_to_least = sort_magic(url_counts)
+    if len(urls_most_to_least) >= n:
+        return urls_most_to_least[:n]
+    else:
+        return urls_most_to_least
+ 
