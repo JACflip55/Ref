@@ -1,0 +1,49 @@
+Remove all characters from string 1 that exist in string 2. You do not have to modify the strings (you can return a new string).
+Example:
+String 1: snapstream
+String 2: snap
+return: trem
+
+#
+
+def trim_string(string1, string2):
+    return [letter for letter in string1 if letter not in string2]
+
+
+
+
+1
+2 3 4
+    5
+
+
+// node class
+public class Foo {
+   // unique id for this instance
+   public string Id;
+   
+   // the children of this instance
+   public Foo[] Children;
+   
+   
+   // todo: Find the first matching Foo otherwise return null
+   public Foo GetFooById( string id ){
+        Foo temp = this;
+        if(this.Id == id)
+            return temp;
+        for( Foo child : this.Children){
+            Foo temp = NULL;
+            if(child != NULL)
+                temp = child.GetFooById(id);
+            if(temp != NULL)
+                return temp;
+        }
+        return NULL;
+    }
+}
+
+      a
+   /     \
+  b       c
+ /
+null
